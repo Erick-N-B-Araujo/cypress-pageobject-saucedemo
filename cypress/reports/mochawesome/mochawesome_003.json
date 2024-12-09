@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-09T13:25:12.314Z",
+    "end": "2024-12-09T13:25:16.215Z",
+    "duration": 3901,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c326dc8b-10cf-4e97-a47b-d7490f6976c9",
+      "title": "",
+      "fullFile": "cypress/integration/tests/ALoginTests.cy.js",
+      "file": "cypress/integration/tests/ALoginTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "07aceb37-7ad4-447c-b163-c1a959ae2afe",
+          "title": "Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "CT01 - Login com credenciais válidas",
+              "fullTitle": "Login Tests CT01 - Login com credenciais válidas",
+              "timedOut": null,
+              "duration": 1692,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users').then(users => {\n  _LoginPage.loginPage.fillUsername(users.validUser.username);\n  _LoginPage.loginPage.fillPassword(users.validUser.password);\n  _LoginPage.loginPage.submit();\n  cy.url().should('include', '/inventory.html');\n});",
+              "err": {},
+              "uuid": "eb31dde2-36a2-4393-adcd-cf7d781aefcd",
+              "parentUUID": "07aceb37-7ad4-447c-b163-c1a959ae2afe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CT02 - Login com credenciais inválidas",
+              "fullTitle": "Login Tests CT02 - Login com credenciais inválidas",
+              "timedOut": null,
+              "duration": 956,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users').then(users => {\n  _LoginPage.loginPage.fillUsername(users.invalidUser.username);\n  _LoginPage.loginPage.fillPassword(users.invalidUser.password);\n  _LoginPage.loginPage.submit();\n  _LoginPage.loginPage.verifyErrorMessage('Username and password do not match any user in this service');\n});",
+              "err": {},
+              "uuid": "728751b9-aeac-444d-8196-000694a26d60",
+              "parentUUID": "07aceb37-7ad4-447c-b163-c1a959ae2afe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eb31dde2-36a2-4393-adcd-cf7d781aefcd",
+            "728751b9-aeac-444d-8196-000694a26d60"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2648,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2024-12-09T13:25:01.141Z",
+    "end": "2024-12-09T13:25:28.424Z",
+    "duration": 27283
+  },
+  "results": [
+    {
+      "uuid": "c326dc8b-10cf-4e97-a47b-d7490f6976c9",
+      "title": "",
+      "fullFile": "cypress/integration/tests/ALoginTests.cy.js",
+      "file": "cypress/integration/tests/ALoginTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "07aceb37-7ad4-447c-b163-c1a959ae2afe",
+          "title": "Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "CT01 - Login com credenciais válidas",
+              "fullTitle": "Login Tests CT01 - Login com credenciais válidas",
+              "timedOut": null,
+              "duration": 1692,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users').then(users => {\n  _LoginPage.loginPage.fillUsername(users.validUser.username);\n  _LoginPage.loginPage.fillPassword(users.validUser.password);\n  _LoginPage.loginPage.submit();\n  cy.url().should('include', '/inventory.html');\n});",
+              "err": {},
+              "uuid": "eb31dde2-36a2-4393-adcd-cf7d781aefcd",
+              "parentUUID": "07aceb37-7ad4-447c-b163-c1a959ae2afe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CT02 - Login com credenciais inválidas",
+              "fullTitle": "Login Tests CT02 - Login com credenciais inválidas",
+              "timedOut": null,
+              "duration": 956,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users').then(users => {\n  _LoginPage.loginPage.fillUsername(users.invalidUser.username);\n  _LoginPage.loginPage.fillPassword(users.invalidUser.password);\n  _LoginPage.loginPage.submit();\n  _LoginPage.loginPage.verifyErrorMessage('Username and password do not match any user in this service');\n});",
+              "err": {},
+              "uuid": "728751b9-aeac-444d-8196-000694a26d60",
+              "parentUUID": "07aceb37-7ad4-447c-b163-c1a959ae2afe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eb31dde2-36a2-4393-adcd-cf7d781aefcd",
+            "728751b9-aeac-444d-8196-000694a26d60"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2648,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "50215f35-35b0-4993-907e-00f54432f364",
+      "title": "",
+      "fullFile": "cypress/integration/tests/BInventoryTests.cy.js",
+      "file": "cypress/integration/tests/BInventoryTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fed6ab47-dabe-4ec9-8394-bb8e980d2d37",
+          "title": "Inventory Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "CT03 - Adicionar um produto ao carrinho",
+              "fullTitle": "Inventory Tests CT03 - Adicionar um produto ao carrinho",
+              "timedOut": null,
+              "duration": 1578,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_InventoryPage.inventoryPage.addItemToCart('Sauce Labs Backpack');\ncy.get('.shopping_cart_badge').should('have.text', '1');",
+              "err": {},
+              "uuid": "d73a33a9-fac5-4203-9484-0b03950fca39",
+              "parentUUID": "fed6ab47-dabe-4ec9-8394-bb8e980d2d37",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CT04 - Remover um produto do carrinho",
+              "fullTitle": "Inventory Tests CT04 - Remover um produto do carrinho",
+              "timedOut": null,
+              "duration": 1012,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_InventoryPage.inventoryPage.addItemToCart('Sauce Labs Backpack');\n_InventoryPage.inventoryPage.removeItemFromCart('Sauce Labs Backpack');\ncy.get('.shopping_cart_badge').should('not.exist');",
+              "err": {},
+              "uuid": "04c12745-89e1-4957-9249-1e84a1b64459",
+              "parentUUID": "fed6ab47-dabe-4ec9-8394-bb8e980d2d37",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d73a33a9-fac5-4203-9484-0b03950fca39",
+            "04c12745-89e1-4957-9249-1e84a1b64459"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2590,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "80594609-3803-4a60-8f9b-aaee9c303a80",
+      "title": "",
+      "fullFile": "cypress/integration/tests/CartTests.cy.js",
+      "file": "cypress/integration/tests/CartTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cbd8ec21-036e-458b-80bc-33d6728ddd3b",
+          "title": "Cart Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "CT05 - Finalizar o checkout com dados válidos",
+              "fullTitle": "Cart Tests CT05 - Finalizar o checkout com dados válidos",
+              "timedOut": null,
+              "duration": 892,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_CartPage.cartPage.openCart();\ncy.get('[data-test=\"checkout\"]').click();\ncy.get('[data-test=\"firstName\"]').type('John');\ncy.get('[data-test=\"lastName\"]').type('Doe');\ncy.get('[data-test=\"postalCode\"]').type('12345');\ncy.get('[data-test=\"continue\"]').click();\ncy.get('[data-test=\"finish\"]').click();\ncy.get('.complete-header').should('contain.text', 'Thank you for your order!');",
+              "err": {
+                "message": "TypeError: Cannot set property message of  which has only a getter\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Cart Tests`",
+                "estack": "TypeError: Cannot set property message of  which has only a getter\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Cart Tests`\n    at modifyErrMsg (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:181577:15)\n    at Object.appendErrMsg (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:181583:10)\n    at Runner.<anonymous> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:185249:74)\n    at Runner.emit (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:22564:7)\n    at ../driver/node_modules/mocha/lib/runner.js.Runner.fail (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:129914:8)\n    at Runner.fail (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:183422:25)\n    at ../driver/node_modules/mocha/lib/runner.js.Runner.failHook (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:129952:8)\n    at Hook.<anonymous> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:130026:14)\n    at next (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:185681:24)\n    at https://www.saucedemo.com/__cypress/runner/cypress_runner.js:185710:13\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:11139:18)\n    at Promise._fulfill (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:11083:18)",
+                "diff": null
+              },
+              "uuid": "d8ad2a0a-6021-4928-b9e1-296cf67bdaab",
+              "parentUUID": "cbd8ec21-036e-458b-80bc-33d6728ddd3b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d8ad2a0a-6021-4928-b9e1-296cf67bdaab"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 892,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
